@@ -84,7 +84,7 @@ class WP_CLI_Login_Server
      */
     public static function parseUri($uri)
     {
-        $slice_nr = is_plugin_active( 'wpml/sitepress.php' ) ? -3 : -2;
+        $slice_nr = class_exists( 'SitePress' ) ? -3 : -2;
         $length = 2;
 
         $uri_modified = array_slice(
