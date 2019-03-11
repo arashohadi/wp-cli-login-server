@@ -84,10 +84,16 @@ class WP_CLI_Login_Server
      */
     public static function parseUri($uri)
     {
-        return array_slice(
+        $slice_nr = is_plugin_active( 'wpml/sitepress.php' ) ? -3 : -2;
+        $length = 2;
+
+        $uri_modified = array_slice(
             array_merge(['',''], explode('/', $uri)),
-            -2
+            $slice_nr,
+            $length
         );
+
+        return $uri_modified;
     }
 
     /**
